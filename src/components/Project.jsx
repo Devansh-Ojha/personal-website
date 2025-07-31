@@ -14,7 +14,7 @@ const Projects = () => (
           <strong>Movie Recommender (Open Project):</strong> LLM-powered recommender system trained on user preferences and conversational feedback.
         </li>
         <li>
-          <strong>SplitSecure:</strong> Built front-end dashboard and helped test access control logic for a zero-trust security startup.
+          <strong>SplitSecure:</strong> access control logic for a zero-trust security startup.
         </li>
       </ul>
     </section>

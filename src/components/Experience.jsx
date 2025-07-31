@@ -2,6 +2,7 @@ import React from "react";
 import ExperienceCard from "./ExperienceCard"; 
 import blab from "../assets/img/berkeley-lab.png";
 import split from "../assets/img/Split.jpeg";
+import berkeley from "../assets/img/berkeley.svg";
 
 const Experience = () => {
   return (
@@ -20,7 +21,7 @@ const Experience = () => {
           description="software."
         />
         <ExperienceCard
-          logo={split}
+          logo={berkeley}
           role="Course Staff (Academic Intern)"
           company="UC Berkeley"
           duration="Jan 2025 – May 2025"
