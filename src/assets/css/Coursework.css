@@ -1,0 +1,96 @@
+
+
+.coursework-section {
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+    padding: 5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: transparent;
+    color: #1f2937; /* Tailwind gray-800 */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .coursework-title {
+    font-size: 2.25rem; /* 3xl */
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #000000; /* black */
+    text-shadow: none;
+  }
+  
+  .coursework-container {
+    background: white;
+    border-radius: 1rem;
+    padding: 2.5rem 3rem;
+    max-width: 60rem; /* approx max-w-5xl */
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    animation: fadeSlideUp 0.8s ease forwards;
+  }
+  
+  .semester-block {
+    margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation-fill-mode: forwards;
+    animation-duration: 0.7s;
+    animation-timing-function: ease-in-out;
+  }
+  
+  .semester-block.visible {
+    animation-name: fadeSlideUp;
+  }
+  
+  .semester-title {
+    font-weight: 600;
+    font-size: 1.25rem; /* xl */
+    margin-bottom: 1rem;
+    color: #1f2937;
+    border-left: 4px solid #3b82f6; /* blue-500 */
+    padding-left: 0.75rem;
+  }
+  
+  .course-list {
+    list-style: none;
+    padding-left: 0;
+    color: #4b5563; /* gray-600 */
+  }
+  
+  .course-list li {
+    position: relative;
+    margin-bottom: 0.55rem; /* increased margin */
+    padding-left: 1.25rem;
+    line-height: 1.25; /* increased line height */
+    font-weight: 400; /* bolder */
+    font-size: 1.10rem; /* bigger text */
+    cursor: default;
+    transition: color 0.3s ease;
+  }
+  
+  .course-list li::before {
+    content: '▶'; /* triangle bullet */
+    position: absolute;
+    left: 0;
+    color: #3b82f6; /* blue-500 */
+    font-size: 1rem;
+    top: 0;
+  }
+  
+  .course-list li:hover {
+    color: #2563eb; /* blue-600 */
+  }
+  
+  @keyframes fadeSlideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
