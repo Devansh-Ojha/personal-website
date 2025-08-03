@@ -28,7 +28,7 @@ const About = () => {
   
           </p>
           <p className="text-gray-800 text-lg leading-relaxed">
-          My interests span in AI/ML, Cyber security, Systems and hardware. Outside of class, I love teaching, contributing to open-source, and exploring how tech can drive meaningful change.
+          My interests span in AI/ML, Cyber security, Systems and hardware. Outside of class, I love teaching and exploring how tech can drive meaningful change.
           In my free time, I enjoy going to the gym, running, cooking, and playing soccer.
           </p>
         </div>
