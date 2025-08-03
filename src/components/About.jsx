@@ -20,7 +20,7 @@ const About = () => {
         <div className="text-left md:text-left space-y-6">
           <h2 className="text-4xl font-bold">ABOUT ME!</h2>
           <p className="text-gray-800 text-lg leading-relaxed">
-            Hi , I'm <strong>Devansh Ojha</strong>. I am a junior <strong>UC Berkeley</strong> (go bears!) studying <strong>Electrical Engineering and Computer Science</strong>. 
+            Hi , I'm <strong>Devansh Ojha</strong>. I am a junior at <strong>UC Berkeley</strong> (go bears!) studying <strong>Electrical Engineering and Computer Science</strong>. 
             I thrive on the challenge of finding innovative solutions that contribute to long-term success and growth.
           </p>
           <p className="text-gray-800 text-lg leading-relaxed">
