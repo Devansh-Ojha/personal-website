@@ -34,7 +34,7 @@ const Experience = () => {
         />
         <ExperienceCard
           logo={blab}
-          role="Research Assistant"
+          role="Undergraduate Researcher"
           company="Berkeley Lab"
           duration="November 2024 – May 2025"
           description="• Worked in Laser Technology Group under Professor Vassilia Zorba."
