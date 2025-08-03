@@ -9,8 +9,7 @@ const Navbar = () => (
       <Link to="home" smooth duration={500} className="navbar-link">About</Link>
       <Link to="experience" smooth duration={500} className="navbar-link">Experience</Link>
       <Link to="coursework" smooth duration={500} className="navbar-link">Coursework</Link>
-      <a
-  href="https://drive.google.com/file/d/1HS6IzY8NVNmpEz9l41fiLGH64DWk6DYo/view?usp=sharing"
+      <a href="https://drive.google.com/file/d/1HS6IzY8NVNmpEz9l41fiLGH64DWk6DYo/view?usp=sharing"
   target="_blank"
   rel="noopener noreferrer"
   className="navbar-link"> Resume</a>
