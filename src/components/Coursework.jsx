@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "../assets/css/Coursework.css"; // Adjust the path if needed
+import "../assets/css/Coursework.css";
 
 const courseworkData = [
   {
@@ -11,7 +11,7 @@ const courseworkData = [
     courses: [
       "CS 61C - Great Ideas in Computer Architecture (Machine Structures)",
       "CS 365 - Introduction to Instructional Methods in Computer Science for Academic Interns",
-      "CS 195- Social Implications of Computer Technology",
+      "CS 195 - Social Implications of Computer Technology",
       "PHYSICS 7B - Physics for Scientists and Engineers II",
     ],
   },
@@ -36,7 +36,7 @@ const courseworkData = [
     courses: [
       "CS 61A - Structure & Interpretation of Computer Programs",
       "EECS16A - Designing Information Devices and Systems I",
-      "MATH 1A - Calculus II",
+      "MATH 1B - Calculus II",
     ],
   },
 ];
@@ -56,7 +56,7 @@ const Coursework = () => {
 
   return (
     <section id="coursework" className="coursework-section">
-      <h2 className="coursework-title">Relevant Coursework</h2>
+      <h2 className="coursework-title">RELEVANT COURSEWORK</h2>
 
       <div className="coursework-container">
         {courseworkData.map(({ semester, courses }, idx) => (
@@ -71,8 +71,7 @@ const Coursework = () => {
                 {courses.map((course) => (
                   <li key={course}>{course}</li>
                 ))}
-              </ul>
-            ) : (
+              </ul> ) : (
               <p className="italic">No courses listed</p>
             )}
           </div>

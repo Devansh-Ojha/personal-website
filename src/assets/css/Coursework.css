@@ -9,15 +9,15 @@
     flex-direction: column;
     align-items: center;
     background: transparent;
-    color: #1f2937; /* Tailwind gray-800 */
+    color: #1f2937; 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
   
   .coursework-title {
-    font-size: 2.25rem; /* 3xl */
+    font-size: 2.25rem; 
     font-weight: 700;
     margin-bottom: 2rem;
-    color: #000000; /* black */
+    color: #000000; 
     text-shadow: none;
   }
   
@@ -25,7 +25,7 @@
     background: white;
     border-radius: 1rem;
     padding: 2.5rem 3rem;
-    max-width: 60rem; /* approx max-w-5xl */
+    max-width: 60rem; 
     width: 100%;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     animation: fadeSlideUp 0.8s ease forwards;
@@ -46,41 +46,41 @@
   
   .semester-title {
     font-weight: 600;
-    font-size: 1.25rem; /* xl */
+    font-size: 1.25rem; 
     margin-bottom: 1rem;
     color: #1f2937;
-    border-left: 4px solid #3b82f6; /* blue-500 */
+    border-left: 4px solid #3b82f6; 
     padding-left: 0.75rem;
   }
   
   .course-list {
     list-style: none;
     padding-left: 0;
-    color: #4b5563; /* gray-600 */
+    color: #4b5563; 
   }
   
   .course-list li {
     position: relative;
-    margin-bottom: 0.55rem; /* increased margin */
+    margin-bottom: 0.55rem; 
     padding-left: 1.25rem;
-    line-height: 1.25; /* increased line height */
-    font-weight: 400; /* bolder */
-    font-size: 1.10rem; /* bigger text */
+    line-height: 1.25; 
+    font-weight: 400;
+    font-size: 1.10rem; 
     cursor: default;
     transition: color 0.3s ease;
   }
   
   .course-list li::before {
-    content: '▶'; /* triangle bullet */
+    content: '▶'; 
     position: absolute;
     left: 0;
-    color: #3b82f6; /* blue-500 */
+    color: #3b82f6; 
     font-size: 1rem;
     top: 0;
   }
   
   .course-list li:hover {
-    color: #2563eb; /* blue-600 */
+    color: #2563eb; 
   }
   
   @keyframes fadeSlideUp {

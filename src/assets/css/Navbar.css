@@ -12,12 +12,13 @@
     align-items: center;
   }
   
-  .navbar-brand {
+  .navbar-name {
     font-weight: bold;
     font-size: 1.25rem;
   }
   
   .navbar-links {
+    
     display: flex;
     gap: 1.5rem;
   }
@@ -29,7 +30,7 @@
   }
   
   .navbar-link:hover {
-    color: #2563eb; /* Tailwind's blue-600 */
+    color: #4075e8; 
     text-decoration: underline;
   }
   

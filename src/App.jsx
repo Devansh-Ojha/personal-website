@@ -4,10 +4,12 @@ import Courses from "./components/coursework";
 import Projects from "./components/Project";
 import Experience from "./components/Experience";
 import Contact from "./components/Contact";
-import Background from './assets/css/Background.jsx';
+import Background from './assets/css/background.jsx';
+
 
 function App() {
   return (
+    
     <div className="relative">
       <Background />
       <Navbar />
@@ -15,9 +17,12 @@ function App() {
         <About />
         <Courses />
         <Experience />
-        <Projects />
+        {/*<Projects /> */}
         <Contact />
       </main>
+      <footer className="text-center text-sm text-gray-500 py-8">
+      © Devansh Ojha 2025. All rights reserved.
+    </footer>
     </div>
   );
 }
