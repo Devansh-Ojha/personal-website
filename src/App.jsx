@@ -1,6 +1,6 @@
 import Navbar from './components/Navbar.jsx';
 import About from './components/About';
-import Courses from "./components/coursework";
+import Courses from "./components/Coursework";
 import Projects from "./components/Project";
 import Experience from "./components/Experience";
 import Contact from "./components/Contact";
