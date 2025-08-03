@@ -1,5 +1,5 @@
-import Navbar from './components/navbar.jsx';
-import About from './components/About.jsx';
+import Navbar from './components/Navbar.jsx';
+import About from './components/About';
 import Courses from "./components/coursework";
 import Projects from "./components/Project";
 import Experience from "./components/Experience";
