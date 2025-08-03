@@ -18,14 +18,16 @@ const Experience = () => {
           role="Software Engineering Intern"
           company="SplitSecure"
           duration="June 2025 – August 2025"
-          description="software."
+          description="• Implemented fine-grained access control by mapping resource ownership and permissions across services.
+          • Enabled efficient cross-service communication through global-to-local resource mapping.
+          • Built a stack-based system for secure, reliable service-to-service calls."
         />
         <ExperienceCard
           logo={berkeley}
           role="Course Staff (Academic Intern)"
           company="UC Berkeley"
           duration="Jan 2025 – May 2025"
-          description="Assisted students in CS61B (Data Structures & Algorithms), a course with 1,000+ students, by answering
+          description="• Assisted students in CS61B (Data Structures & Algorithms), a course with 1,000+ students, by answering
           questions during office hours and providing guidance on homework and projects."
         />
         <ExperienceCard
@@ -33,7 +35,7 @@ const Experience = () => {
           role="Research Assistant"
           company="Berkeley Lab"
           duration="November 2024 – May 2025"
-          description="Worked in Laser Technology Group under Professor Vassilia Zorba."
+          description="• Worked in Laser Technology Group under Professor Vassilia Zorba."
         />
         
       </div>
