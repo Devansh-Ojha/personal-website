@@ -20,12 +20,16 @@ const About = () => {
         <div className="text-left md:text-left space-y-6">
           <h2 className="text-4xl font-bold">ABOUT ME!</h2>
           <p className="text-gray-800 text-lg leading-relaxed">
-            Hi , I'm <strong>Devansh Ojha</strong> — a junior at UC Berkeley studying <strong>Electrical Engineering and Computer Science</strong>. 
-            I'm passionate about building accessible and inclusive technologies that create real impact.
+            Hi , I'm <strong>Devansh Ojha</strong>. I am junior at UC Berkeley studying <strong>Electrical Engineering and Computer Science</strong>. 
+            I thrive on the challenge of finding innovative solutions that contribute to long-term success and growth.
           </p>
           <p className="text-gray-800 text-lg leading-relaxed">
-            I've worked on AI-driven movie recommenders, interned at a cybersecurity startup, and currently conduct research at Berkeley Lab.
-            Outside of academics, I enjoy teaching, working on open-source projects, and exploring how tech can reshape the world.
+          I’m currently interning at the cybersecurity startup <strong>SplitSecure</strong> a platform protecting enterprises from advanced attacks using quantum-resistant encryption.
+  
+          </p>
+          <p className="text-gray-800 text-lg leading-relaxed">
+          My interests span in AI/ML, Cyber security, Systems and hardware. Outside of class, I love teaching, contributing to open-source, and exploring how tech can drive meaningful change.
+          In my free time, I enjoy going to the gym, running, cooking, and playing soccer.
           </p>
         </div>
       </div>

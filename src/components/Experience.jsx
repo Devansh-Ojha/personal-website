@@ -3,6 +3,7 @@ import ExperienceCard from "./ExperienceCard";
 import blab from "../assets/img/berkeley-lab.png";
 import split from "../assets/img/Split.jpeg";
 import berkeley from "../assets/img/berkeley.svg";
+import cfg from "../assets/img/images.png";
 
 const Experience = () => {
   return (
@@ -18,9 +19,10 @@ const Experience = () => {
           role="Software Engineering Intern"
           company="SplitSecure"
           duration="June 2025 – August 2025"
-          description="• Implemented fine-grained access control by mapping resource ownership and permissions across services.
-          • Enabled efficient cross-service communication through global-to-local resource mapping.
-          • Built a stack-based system for secure, reliable service-to-service calls."
+          description="• Implemented fine-grained access control by mapping resource ownership and permissions across services 
+          • Enabled efficient cross-service communication through global-to-local resource mapping
+          • Built a stack-based system for secure, reliable service-to-service calls"
+          
         />
         <ExperienceCard
           logo={berkeley}
@@ -36,6 +38,17 @@ const Experience = () => {
           company="Berkeley Lab"
           duration="November 2024 – May 2025"
           description="• Worked in Laser Technology Group under Professor Vassilia Zorba."
+        />
+
+          <ExperienceCard
+          logo={cfg}
+          role="Software and Data Engineering Intern"
+          company="Coforge"
+          duration="May 2024 – July 2025"
+          description="
+          • Utilized Pandas for data manipulation and analysis, leading to actionable insights and strategic business decisions
+          • Collaborated with IT team to implement software solutions, enhancing system performance and reliability greatly
+          • Implemented RESTful APIs to facilitate integration between software components and third-party services"
         />
         
       </div>
