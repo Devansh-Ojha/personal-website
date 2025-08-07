@@ -1,5 +1,5 @@
 import React from "react";
-import ProfilePic from "../assets/img/devanshojha0505@berkeley.edu.png";
+import ProfilePic from "../assets/img/Ojha_Devansh.jpg";
 
 const About = () => {
   return (
@@ -12,8 +12,8 @@ const About = () => {
         <div className="flex justify-center md:justify-start">
           <img
             src={ProfilePic}
-            className="w-80 h-50 object-contain rounded-xl shadow-md border-2 border-gray-300"
-
+            className="w-80 h-80 object-cover rounded-full shadow-md border-2 border-gray-300"
+            alt="Devansh Ojha"
           />
         </div>
 
