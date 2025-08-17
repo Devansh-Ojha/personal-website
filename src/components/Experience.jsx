@@ -47,8 +47,7 @@ const Experience = () => {
           duration="May 2024 – July 2024"
           description="
           • Utilized Pandas for data manipulation and analysis, leading to actionable insights and strategic business decisions
-          • Collaborated with IT team to implement software solutions, enhancing system performance and reliability greatly
-          • Implemented RESTful APIs to facilitate integration between software components and third-party services"
+          • Collaborated with IT team to implement software solutions, enhancing system performance and reliability greatly"
         />
         
       </div>
