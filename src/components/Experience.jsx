@@ -44,7 +44,7 @@ const Experience = () => {
           logo={cfg}
           role="Software and Data Engineering Intern"
           company="Coforge"
-          duration="May 2024 – July 2025"
+          duration="May 2024 – July 2024"
           description="
           • Utilized Pandas for data manipulation and analysis, leading to actionable insights and strategic business decisions
           • Collaborated with IT team to implement software solutions, enhancing system performance and reliability greatly
