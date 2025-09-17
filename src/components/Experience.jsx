@@ -1,7 +1,7 @@
 import React from "react";
 import ExperienceCard from "./ExperienceCard"; 
 import blab from "../assets/img/berkeley-lab.png";
-import split from "../assets/img/Split.jpeg";
+import split from "../assets/img/splitsecure_logo.jpeg";
 import berkeley from "../assets/img/berkeley.svg";
 import cfg from "../assets/img/images.png";
 
