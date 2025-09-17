@@ -4,7 +4,9 @@ import "../assets/css/Coursework.css";
 const courseworkData = [
   {
     semester: "Fall 2025",
-    courses: ["TBD!"],
+    courses: ["CS 161 - Computer Security" ,
+              "EECS 127 - Optimization Models in Engineering",
+              "EPS 109 - Computer Simulations with Jupyter Notebooks"],
   },
   {
     semester: "Spring 2025",
