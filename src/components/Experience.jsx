@@ -4,6 +4,8 @@ import blab from "../assets/img/berkeley-lab.png";
 import split from "../assets/img/splitsecure_logo.jpeg";
 import berkeley from "../assets/img/berkeley.svg";
 import cfg from "../assets/img/images.png";
+import bair from "../assets/img/BAIR.png";
+import bmob from "../assets/img/b-mobile.jpeg";
 
 const Experience = () => {
   return (
@@ -13,6 +15,25 @@ const Experience = () => {
     >
     <h2 className="experience-title">EXPERIENCE</h2>
       <div className="flex flex-wrap justify-center gap-8">
+
+      <ExperienceCard
+          logo={bmob}
+          role="iOS Developer"
+          company="Berkeley Mobile"
+          duration="Sep 2025 - Present"
+          description="• Helping build Berkeley Mobile, an iOS app by student government that provides Transit routes, library and gym
+          information, and other campus resources to help 30K+ students navigate campus efficiently. Over 3K+ monthly active users"
+          
+        />
+
+      <ExperienceCard
+          logo={bair}
+          role="Undergraduate Researcher"
+          company="Berkeley Artificial Intelligence Research"
+          duration="August 2025 - Present"
+          description="• Research on machine translation for Asian low resource languages conducted under Prof. Kurt Keutzer at Berkeley Artificial Intelligence Research (BAIR)."
+          
+        />
 
       <ExperienceCard
           logo={split}
