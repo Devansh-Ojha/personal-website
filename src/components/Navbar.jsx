@@ -38,8 +38,9 @@ const Navbar = () => {
         <div className="font-bold text-xl text-gray-800">Devansh Ojha</div>
         <div className="hidden md:flex items-center gap-6">
           <NavLink to="home">About</NavLink>
-          <NavLink to="coursework">Coursework</NavLink>
           <NavLink to="experience">Experience</NavLink>
+          <NavLink to="coursework">Coursework</NavLink>
+          
         
           <NavLink to="contact">Contact</NavLink> {/* Moved up */}
           <a
@@ -68,8 +69,9 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden mt-4 flex flex-col items-center gap-4 bg-white rounded-lg p-4 shadow-lg">
           <NavLink to="home">About</NavLink>
-          <NavLink to="coursework">Coursework</NavLink>
           <NavLink to="experience">Experience</NavLink>
+          <NavLink to="coursework">Coursework</NavLink>
+        
           
           <NavLink to="contact">Contact</NavLink> 
           <a 

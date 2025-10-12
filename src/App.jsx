@@ -17,8 +17,8 @@ function App() {
       <Navbar />
       <main className="pt-20">
         <About />
-        <Courses />
         <Experience />
+        <Courses />
         {/*<Projects /> */}
         <Contact />
         
