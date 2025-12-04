@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 const courseworkData = [
-  { semester: "Fall 2025", courses: ["CS 161 - Computer Security", "EECS 127 - Optimization Models in Engineering", "EPS 109 - Computer Simulations with Jupyter Notebooks"] },
+  { semester: "Fall 2025", courses: ["CS 161 - Computer Security", "EECS 127 - Optimization Models in Engineering", "Data 88E - Economic Models"] },
   { semester: "Spring 2025", courses: ["CS 61C - Great Ideas in Computer Architecture (Machine Structures)", "CS 365 - Introduction to Instructional Methods in CS for Academic Interns", "CS 195 - Social Implications of Computer Technology", "PHYSICS 7B - Physics for Scientists and Engineers II"] },
   { semester: "Fall 2024", courses: ["CS 70 - Discrete Math & Probability Theory", "EECS 16B - Designing Information Devices and Systems II", "PHYSICS 7A - Physics for Scientists and Engineers I"] },
   { semester: "Spring 2024", courses: ["CS 61B - Data Structures", "MATH 53 - Multivariable Calculus", "MATH 1A - Calculus I"] },
