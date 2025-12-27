@@ -71,17 +71,15 @@ const Navbar = () => {
           <NavLink to="home">About</NavLink>
           <NavLink to="experience">Experience</NavLink>
           <NavLink to="coursework">Coursework</NavLink>
-        
-          
           <NavLink to="contact">Contact</NavLink> 
-          <a 
-            href="https://drive.google.com/file/d/10ZThMTKmj8vEYL2dI-Xs6g3eKS-yrVFe/view?usp=sharing" 
+          {/* <a 
+            href="""
             className="cursor-pointer text-lg"
             target="_blank"
             rel="noopener noreferrer"
           >
             Resume
-          </a>
+          </a> */}
         </div>
       )}
     </nav>
