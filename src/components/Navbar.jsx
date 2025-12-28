@@ -40,17 +40,15 @@ const Navbar = () => {
           <NavLink to="home">About</NavLink>
           <NavLink to="experience">Experience</NavLink>
           <NavLink to="coursework">Coursework</NavLink>
-          
-        
-          <NavLink to="contact">Contact</NavLink> {/* Moved up */}
-          <a
-            href="https://drive.google.com/file/d/12jYL4qvC3pkhMC6rNDnTHsD3GcWR233P/view?usp=sharing"
+          <NavLink to="contact">Contact</NavLink> 
+          {/* <a
+            href=""
             target="_blank"
             rel="noopener noreferrer"
             className="cursor-pointer text-lg transition-colors hover:text-blue-500"
           >
             Resume
-          </a>
+          </a> */}
         </div>
         <div className="md:hidden">
           <button onClick={() => setIsOpen(!isOpen)} aria-label="Open Menu">
