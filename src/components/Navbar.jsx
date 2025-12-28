@@ -76,8 +76,7 @@ const Navbar = () => {
             href="""
             className="cursor-pointer text-lg"
             target="_blank"
-            rel="noopener noreferrer"
-          >
+            rel="noopener noreferrer">
             Resume
           </a> */}
         </div>
