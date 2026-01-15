@@ -28,7 +28,6 @@ const Project = () => {
           description="Built an event-driven system for real-time video analytics that slices live streams, performs YOLO-based object detection, and enables natural-language search over video clips. Designed a scalable pipeline using Kafka-style streaming, distributed ML workers, and vector search for semantic retrieval."
           github="https://github.com/Devansh-Ojha/chronos"
           tech={["Go", "Python", "Kafka", "Computer Vision", "Vector DB", "Docker", "YOLOv8"]}
-          isNDA={true}
         />
 
         <ProjectCard
@@ -37,6 +36,8 @@ const Project = () => {
           description="Built an end-to-end encrypted file storage system with secure sharing and revocation using append-only file blocks. Designed a cryptographic key hierarchy with per-user and per-file isolation, signed invitations, and efficient key rotation. Achieved constant-size bandwidth for file appends and metadata updates."
           github="https://github.com/your-username/mt-low-resource"
           tech={["Go","Symmetric Encryption", "Digital Signatures","MACs", "Computer Security"]}
+          isNDA={true}
+          ndaReason="Can't share due to school's honesty policy"
         />
 
         {/* <ProjectCard

@@ -1,6 +1,6 @@
 import "../assets/css/Project.css";
 
-const ProjectCard = ({ image, title, description, github, tech, isNDA = false }) => {
+const ProjectCard = ({ image, title, description, github, tech, isNDA = false, ndaReason = "Can't share due to NDA" }) => {
   return (
     <div className="project-card">
       <div className="project-image">
@@ -28,7 +28,7 @@ const ProjectCard = ({ image, title, description, github, tech, isNDA = false })
             GitHub
           </button>
           <div className="nda-tooltip">
-            Can't share due to NDA
+            {ndaReason}
           </div>
         </div>
       ) : (
