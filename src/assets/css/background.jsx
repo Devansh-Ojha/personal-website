@@ -12,104 +12,36 @@ export default function App() {
     canvas.width = width;
     canvas.height = height;
 
-    const mouse = {
-      x: null,
-      y: null,
-      radius: 150,
-    };
+    const gap = 40; // Distance between dots (higher = cleaner/less dense)
+    const speed = 0.003; // Very slow, deliberate movement
+    const amplitude = 30; // How high the wave goes
+    const waveLength = 0.003; // How wide the waves are
 
-    class Particle {
-      constructor() {
-        this.x = Math.random() * width;
-        this.y = Math.random() * height;
-        this.size = Math.random() * 2 + 1;
-        this.baseX = this.x;
-        this.baseY = this.y;
-        this.speedX = Math.random() * 1 - 0.4;
-        this.speedY = Math.random() * 1 - 0.4;
-        this.density = Math.random() * 20 + 1;
-      }
-
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(96, 165, 250, 0.7)' 
-        ctx.fill();
-      }
-
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-
-        if (this.x <= 0 || this.x >= width) this.speedX *= -1;
-        if (this.y <= 0 || this.y >= height) this.speedY *= -1;
-
-        // To Repel from mouse
-        if (mouse.x !== null && mouse.y !== null) {
-          const dx = this.x - mouse.x;
-          const dy = this.y - mouse.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < mouse.radius) {
-            const angle = Math.atan2(dy, dx);
-            const force = (mouse.radius - distance) / mouse.radius;
-            const repelX = Math.cos(angle) * force * this.density;
-            const repelY = Math.sin(angle) * force * this.density;
-            this.x += repelX;
-            this.y += repelY;
-          }
-        }
-      }
-    }
-
-    let particlesArray = [];
-
-    function init() {
-      particlesArray = [];
-      for (let i = 0; i < 100; i++) {
-        particlesArray.push(new Particle());
-      }
-    }
-
-    function connectParticles() {
-      for (let a = 0; a < particlesArray.length; a++) {
-        for (let b = a + 1; b < particlesArray.length; b++) {
-          const dx = particlesArray[a].x - particlesArray[b].x;
-          const dy = particlesArray[a].y - particlesArray[b].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-          if (distance < 100) {
-            ctx.strokeStyle = `rgba(96, 165, 250, ${0.7 * (1 - distance / 100)})`; // blue lines
-ctx.lineWidth = 0.8; // thickkkkkkkk
-            ctx.beginPath();
-            ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-            ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
-            ctx.stroke();
-          }
-        }
-      }
-    }
+    let offset = 0; 
 
     function animate() {
-      // white background
-      ctx.fillStyle = '#fff';
-      ctx.fillRect(0, 0, width, height);
+      ctx.clearRect(0, 0, width, height);
 
-      for (let i = 0; i < particlesArray.length; i++) {
-        particlesArray[i].update();
-        particlesArray[i].draw();
+      for (let x = 0; x <= width; x += gap) {
+        for (let y = 0; y <= height; y += gap) {
+      
+          const distanceFromCenter = Math.sqrt(Math.pow(x - width/2, 2) + Math.pow(y - height/2, 2));
+          
+          const z = Math.sin(distanceFromCenter * waveLength + offset) * amplitude;
+
+          // 4. Draw the Dot
+          ctx.beginPath();
+          const radius = Math.max(0.5, 1.5 + z * 0.02); 
+          const opacity = Math.max(0.1, 0.5 + z * 0.01); 
+          
+          ctx.fillStyle = `rgba(100, 116, 139, ${opacity})`; 
+          ctx.arc(x, y + z, radius, 0, Math.PI * 2);
+          ctx.fill();
+        }
       }
-      connectParticles();
+
+      offset -= speed;
       requestAnimationFrame(animate);
-    }
-
-    function onMouseMove(e) {
-      mouse.x = e.clientX;
-      mouse.y = e.clientY;
-    }
-
-    function onMouseLeave() {
-      mouse.x = null;
-      mouse.y = null;
     }
 
     function onResize() {
@@ -117,19 +49,12 @@ ctx.lineWidth = 0.8; // thickkkkkkkk
       height = window.innerHeight;
       canvas.width = width;
       canvas.height = height;
-      init();
     }
 
-    window.addEventListener('mousemove', onMouseMove);
-    window.addEventListener('mouseleave', onMouseLeave);
     window.addEventListener('resize', onResize);
-
-    init();
     animate();
 
     return () => {
-      window.removeEventListener('mousemove', onMouseMove);
-      window.removeEventListener('mouseleave', onMouseLeave);
       window.removeEventListener('resize', onResize);
     };
   }, []);
@@ -144,21 +69,10 @@ ctx.lineWidth = 0.8; // thickkkkkkkk
           left: 0,
           width: '100vw',
           height: '100vh',
-          backgroundColor: '#fff', 
+          backgroundColor: '#f6f7f9ff', // Deep Slate / Dark Navy
           zIndex: -1,
         }}
       />
-      <div
-        style={{
-          position: 'relative',
-          zIndex: 1,
-          padding: '40px',
-          color: 'black',
-          fontFamily: 'Arial, sans-serif',
-        }}
-      >
-      
-      </div>
     </>
   );
 }

@@ -1,4 +1,3 @@
-import React from "react";
 import ExperienceCard from "./ExperienceCard"; 
 import blab from "../assets/img/berkeley-lab.png";
 import split from "../assets/img/splitsecure_logo.jpeg";

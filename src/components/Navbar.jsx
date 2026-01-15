@@ -8,6 +8,7 @@ const NavLink = ({ to, children }) => (
     duration={500}
     spy={true}
     activeClass="active"
+    offset={-80} 
     className="cursor-pointer text-lg transition-colors hover:text-blue-500"
   >
     {children}
@@ -39,6 +40,7 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-6">
           <NavLink to="home">About</NavLink>
           <NavLink to="experience">Experience</NavLink>
+          <NavLink to="projects">Projects</NavLink> 
           <NavLink to="coursework">Coursework</NavLink>
           <NavLink to="contact">Contact</NavLink> 
           {/* <a
@@ -68,6 +70,7 @@ const Navbar = () => {
         <div className="md:hidden mt-4 flex flex-col items-center gap-4 bg-white rounded-lg p-4 shadow-lg">
           <NavLink to="home">About</NavLink>
           <NavLink to="experience">Experience</NavLink>
+          <NavLink to="projects">Projects</NavLink> 
           <NavLink to="coursework">Coursework</NavLink>
           <NavLink to="contact">Contact</NavLink> 
           {/* <a 

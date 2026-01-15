@@ -1,4 +1,3 @@
-import React from "react";
 import "../assets/css/Experience.css";
 
 const ExperienceCard = ({ logo, role, company, duration, description }) => {
