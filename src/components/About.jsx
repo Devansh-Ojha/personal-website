@@ -54,9 +54,8 @@ const About = () => {
             Hi, I'm <strong>Devansh Ojha</strong>. I am a junior at <strong>UC Berkeley</strong> (go bears!) studying <strong>Electrical Engineering and Computer Science</strong>. I thrive on the challenge of finding innovative solutions that contribute to long-term success and growth.
           </p>
           <p>
-            My interests span in Software engineering, AI/ML, Cyber security, Systems and Hardware. Outside of class, I love teaching and exploring how tech can drive meaningful change. In my free time I enjoy going to the gym, running, cooking, and playing soccer.
+            My interests span in Software engineering, Hardware, AI/ML, Cyber security, and Systems. Outside of class, I love teaching and exploring how tech can drive meaningful change. In my free time I enjoy going to the gym, running, cooking, and playing soccer.
           </p>
-          
         </motion.div>
       </div>
     </motion.section>
