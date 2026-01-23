@@ -1,19 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-scroll";
+import { Link as RouterLink, useLocation } from "react-router-dom";
 
-const NavLink = ({ to, children }) => (
-  <Link
-    to={to}
-    smooth
-    duration={500}
-    spy={true}
-    activeClass="active"
-    offset={-80} 
-    className="cursor-pointer text-lg transition-colors hover:text-blue-500"
-  >
-    {children}
-  </Link>
-);
+const NavLink = ({ to, children }) => {
+  const location = useLocation();
+  const isActive = location.pathname === to || (to === "/" && location.pathname === "/");
+  
+  return (
+    <RouterLink
+      to={to}
+      className={`text-lg transition-colors ${
+        isActive 
+          ? 'text-blue-500 font-semibold' 
+          : 'text-gray-800 hover:text-blue-500'
+      }`}
+    >
+      {children}
+    </RouterLink>
+  );
+};
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -36,13 +40,15 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 w-full z-50 px-6 md:px-8 transition-all duration-300 ${navClass}`}>
       <div className="container mx-auto flex justify-between items-center">
-        <div className="font-bold text-xl text-gray-800">Devansh Ojha</div>
+        <RouterLink to="/" className="font-bold text-xl text-gray-800 hover:text-blue-500">
+          Devansh Ojha
+        </RouterLink>
         <div className="hidden md:flex items-center gap-6">
-          <NavLink to="home">About</NavLink>
-          <NavLink to="experience">Experience</NavLink>
-          <NavLink to="projects">Projects</NavLink> 
-          <NavLink to="coursework">Coursework</NavLink>
-          <NavLink to="contact">Contact</NavLink> 
+          <NavLink to="/">About</NavLink>
+          <NavLink to="/experience">Experience</NavLink>
+          <NavLink to="/projects">Projects</NavLink> 
+          <NavLink to="/coursework">Coursework</NavLink>
+          <NavLink to="/contact">Contact</NavLink> 
           {/* <a
             href=""
             target="_blank"
@@ -68,11 +74,11 @@ const Navbar = () => {
       </div>
       {isOpen && (
         <div className="md:hidden mt-4 flex flex-col items-center gap-4 bg-white rounded-lg p-4 shadow-lg">
-          <NavLink to="home">About</NavLink>
-          <NavLink to="experience">Experience</NavLink>
-          <NavLink to="projects">Projects</NavLink> 
-          <NavLink to="coursework">Coursework</NavLink>
-          <NavLink to="contact">Contact</NavLink> 
+          <NavLink to="/">About</NavLink>
+          <NavLink to="/experience">Experience</NavLink>
+          <NavLink to="/projects">Projects</NavLink> 
+          <NavLink to="/coursework">Coursework</NavLink>
+          <NavLink to="/contact">Contact</NavLink> 
           {/* <a 
             href="""
             className="cursor-pointer text-lg"
