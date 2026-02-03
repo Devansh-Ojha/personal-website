@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 
 const courseworkData = [
+  { semester: "Spring 2026", courses: ["EECS 151 - Digital Design & Integrated Circuits (ASIC Lab)", "CS 152 - Computer Architecture and Engineering"]},
   { semester: "Fall 2025", courses: ["CS 161 - Computer Security", "EECS 127 - Optimization Models in Engineering", "Data 88E - Economic Models"] },
   { semester: "Spring 2025", courses: ["CS 61C - Great Ideas in Computer Architecture (Machine Structures)", "CS 365 - Introduction to Instructional Methods in CS for Academic Interns", "CS 195 - Social Implications of Computer Technology", "PHYSICS 7B - Physics for Scientists and Engineers II"] },
   { semester: "Fall 2024", courses: ["CS 70 - Discrete Math & Probability Theory", "EECS 16B - Designing Information Devices and Systems II", "PHYSICS 7A - Physics for Scientists and Engineers I"] },
@@ -30,7 +31,7 @@ const Coursework = () => {
         >
           <div className="absolute left-4 top-2 h-full w-0.5 bg-slate-200" aria-hidden="true" />
           {courseworkData.map(({ semester, courses }) => {
-            const isCurrent = semester === "Fall 2025";
+            const isCurrent = semester === "Spring 2026";
             return (
               <motion.div key={semester} className="relative pl-12 pb-8" variants={itemVariants}>
                 <div className={`absolute left-4 top-2 -ml-1.5 h-3 w-3 rounded-full ${isCurrent ? "bg-blue-500 ring-8 ring-blue-100" : "bg-slate-300"}`} />
