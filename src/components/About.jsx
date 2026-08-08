@@ -17,9 +17,7 @@ const courses = [
   { code: "EECS 127", name: "Optimization Models in Engineering" },
   { code: "EECS 151", name: "Digital Design & Integrated Circuits (ASIC Lab)" },
   { code: "Data 88E", name: "Economic Models" },
-  { code: "MATH 53", name: "Multivariable Calculus" },
-  { code: "PHYSICS 7A", name: "Physics for Scientists and Engineers I" },
-  { code: "PHYSICS 7B", name: "Physics for Scientists and Engineers II" }
+  { code: "MATH 53", name: "Multivariable Calculus" }
 ];
 
 const getCourseBadgeStyles = (code) => {
