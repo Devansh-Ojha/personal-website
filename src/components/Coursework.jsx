@@ -1,58 +1,138 @@
 import { motion } from "framer-motion";
+import { BookOpen, GraduationCap, Calendar, Award } from "lucide-react";
 
 const courseworkData = [
-  { semester: "Spring 2026", courses: ["EECS 151 - Digital Design & Integrated Circuits (ASIC Lab)", "CS 152 - Computer Architecture and Engineering"]},
-  { semester: "Fall 2025", courses: ["CS 161 - Computer Security", "EECS 127 - Optimization Models in Engineering", "Data 88E - Economic Models"] },
-  { semester: "Spring 2025", courses: ["CS 61C - Great Ideas in Computer Architecture (Machine Structures)", "CS 365 - Introduction to Instructional Methods in CS for Academic Interns", "CS 195 - Social Implications of Computer Technology", "PHYSICS 7B - Physics for Scientists and Engineers II"] },
-  { semester: "Fall 2024", courses: ["CS 70 - Discrete Math & Probability Theory", "EECS 16B - Designing Information Devices and Systems II", "PHYSICS 7A - Physics for Scientists and Engineers I"] },
-  { semester: "Spring 2024", courses: ["CS 61B - Data Structures", "MATH 53 - Multivariable Calculus", "MATH 1A - Calculus I"] },
-  { semester: "Fall 2023", courses: ["CS 61A - Structure & Interpretation of Computer Programs", "EECS 16A - Designing Information Devices and Systems I", "MATH 1B - Calculus II"] },
+  { 
+    semester: "Spring 2026", 
+    isCurrent: true,
+    courses: [
+      { code: "EECS 151", name: "Digital Design & Integrated Circuits (ASIC Lab)" },
+      { code: "CS 152", name: "Computer Architecture and Engineering" }
+    ]
+  },
+  { 
+    semester: "Fall 2025", 
+    courses: [
+      { code: "CS 161", name: "Computer Security" },
+      { code: "EECS 127", name: "Optimization Models in Engineering" },
+      { code: "Data 88E", name: "Economic Models" }
+    ] 
+  },
+  { 
+    semester: "Spring 2025", 
+    courses: [
+      { code: "CS 61C", name: "Great Ideas in Computer Architecture" },
+      { code: "CS 365", name: "Instructional Methods in CS" },
+      { code: "CS 195", name: "Social Implications of Computer Tech" },
+      { code: "PHYS 7B", name: "Physics for Scientists & Engineers II" }
+    ] 
+  },
+  { 
+    semester: "Fall 2024", 
+    courses: [
+      { code: "CS 70", name: "Discrete Math & Probability Theory" },
+      { code: "EECS 16B", name: "Designing Information Devices & Systems II" },
+      { code: "PHYS 7A", name: "Physics for Scientists & Engineers I" }
+    ] 
+  },
+  { 
+    semester: "Spring 2024", 
+    courses: [
+      { code: "CS 61B", name: "Data Structures" },
+      { code: "MATH 53", name: "Multivariable Calculus" },
+      { code: "MATH 1A", name: "Calculus I" }
+    ] 
+  },
+  { 
+    semester: "Fall 2023", 
+    courses: [
+      { code: "CS 61A", name: "Structure & Interpretation of Computer Programs" },
+      { code: "EECS 16A", name: "Designing Information Devices & Systems I" },
+      { code: "MATH 1B", name: "Calculus II" }
+    ] 
+  },
 ];
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.1 }
+  }
+};
 
-const timelineVariants = { hidden: {}, visible: { transition: { staggerChildren: 0.3 } } };
-const itemVariants = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } };
-const courseListVariants = { hidden: {}, visible: { transition: { staggerChildren: 0.1 } } };
-const courseVariants = { hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } };
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.5, ease: "easeOut" } 
+  }
+};
 
 const Coursework = () => {
   return (
-    <section id="coursework" className="w-full px-4 py-24 flex flex-col items-center">
-      <div className="container mx-auto">
-        <h2 className="text-3xl font-black tracking-tight text-slate-900 text-center mb-12">
-          RELEVANT COURSEWORK
-        </h2>
+    <section id="coursework" className="py-12 bg-transparent">
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="flex flex-col items-center mb-10">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-xs font-semibold uppercase tracking-wider mb-3">
+            <GraduationCap size={14} />
+            Academic Profile
+          </div>
+          <h2 className="text-3xl font-bold text-slate-900 tracking-tight text-center">
+            RELEVANT COURSEWORK
+          </h2>
+          <div className="w-12 h-1 bg-blue-600 rounded-full mt-3" />
+        </div>
+
         <motion.div
-          className="relative max-w-3xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={timelineVariants}
+          viewport={{ once: true, amount: 0.1 }}
         >
-          <div className="absolute left-4 top-2 h-full w-0.5 bg-slate-200" aria-hidden="true" />
-          {courseworkData.map(({ semester, courses }) => {
-            const isCurrent = semester === "Spring 2026";
-            return (
-              <motion.div key={semester} className="relative pl-12 pb-8" variants={itemVariants}>
-                <div className={`absolute left-4 top-2 -ml-1.5 h-3 w-3 rounded-full ${isCurrent ? "bg-blue-500 ring-8 ring-blue-100" : "bg-slate-300"}`} />
-                <div className="p-6 bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="flex items-center justify-between mb-3">
-                    <h3 className="font-bold text-xl text-slate-800">{semester}</h3>
-                    {isCurrent && <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Current</span>}
-                  </div>
-        
-                  <motion.ul className="space-y-2 text-slate-600 list-inside list-disc" variants={courseListVariants}>
-                    {courses.map((course) => (
-                      
-                      <motion.li key={course} variants={courseVariants}>
-                        {course}
-                      </motion.li>
-                    ))}
-                  </motion.ul>
+          {courseworkData.map(({ semester, courses, isCurrent }) => (
+            <motion.div
+              key={semester}
+              variants={cardVariants}
+              whileHover={{ y: -4 }}
+              className={`relative overflow-hidden rounded-xl border p-5 transition-all duration-300 ${
+                isCurrent 
+                  ? "bg-white border-blue-200 shadow-md ring-1 ring-blue-100" 
+                  : "bg-white/80 backdrop-blur-sm border-slate-200/60 shadow-sm hover:shadow-md hover:border-slate-300"
+              }`}
+            >
+              {isCurrent && (
+                <div className="absolute top-0 right-0">
+                  <span className="inline-flex items-center gap-1 bg-blue-600 text-white text-[10px] font-bold px-2.5 py-0.75 rounded-bl-lg uppercase tracking-wide">
+                    <Award size={10} />
+                    Current
+                  </span>
                 </div>
-              </motion.div>
-            );
-          })}
+              )}
+
+              <div className="flex items-center gap-2 mb-4">
+                <Calendar className={`h-4 w-4 ${isCurrent ? "text-blue-600" : "text-slate-400"}`} />
+                <h3 className="font-bold text-base text-slate-800">{semester}</h3>
+              </div>
+
+              <ul className="space-y-3">
+                {courses.map((course, idx) => (
+                  <li key={idx} className="flex gap-2.5 items-start">
+                    <BookOpen className="h-3.5 w-3.5 text-blue-500 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <span className="inline-block font-mono text-[11px] font-bold text-slate-700 bg-slate-100 rounded px-1.5 py-0.25 mr-1.5">
+                        {course.code}
+                      </span>
+                      <span className="text-[13px] text-slate-600 leading-snug">
+                        {course.name}
+                      </span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
     </section>
