@@ -93,11 +93,7 @@ const Experience = () => {
     <section id="experience" className="py-12 bg-transparent">
       <div className="max-w-3xl mx-auto px-4">
         {/* Section Header */}
-        <div className="flex flex-col items-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-xs font-semibold uppercase tracking-wider mb-3">
-            <Briefcase size={13} />
-            Professional Journey
-          </div>
+        <div className="flex flex-col items-center mb-12">
           <h2 className="text-3xl font-bold text-slate-900 tracking-tight text-center">
             EXPERIENCE
           </h2>

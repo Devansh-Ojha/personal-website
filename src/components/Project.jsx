@@ -1,5 +1,4 @@
 import ProjectCard from "./ProjectCard";
-import { FolderGit } from "lucide-react";
 
 const Project = () => {
   const projects = [
@@ -30,10 +29,6 @@ const Project = () => {
       <div className="max-w-6xl mx-auto px-4">
         {/* Section Header */}
         <div className="flex flex-col items-center mb-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-xs font-semibold uppercase tracking-wider mb-3">
-            <FolderGit size={13} />
-            Engineering & Design
-          </div>
           <h2 className="text-3xl font-bold text-slate-900 tracking-tight text-center">
             PROJECTS
           </h2>

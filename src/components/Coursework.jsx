@@ -1,10 +1,9 @@
 import { motion } from "framer-motion";
-import { BookOpen, GraduationCap, Calendar, Award } from "lucide-react";
+import { GraduationCap } from "lucide-react";
 
 const courseworkData = [
   { 
     semester: "Spring 2026", 
-    isCurrent: true,
     courses: [
       { code: "EECS 151", name: "Digital Design & Integrated Circuits (ASIC Lab)" },
       { code: "CS 152", name: "Computer Architecture and Engineering" }
@@ -53,69 +52,73 @@ const courseworkData = [
   },
 ];
 
+const getCourseBadgeStyles = (code) => {
+  const cleanCode = code.toUpperCase();
+  if (cleanCode.startsWith("CS") || cleanCode.startsWith("EECS")) {
+    return "bg-blue-50 text-blue-700 border-blue-100 hover:bg-blue-100/50";
+  }
+  if (cleanCode.startsWith("MATH")) {
+    return "bg-purple-50 text-purple-700 border-purple-100 hover:bg-purple-100/50";
+  }
+  if (cleanCode.startsWith("DATA")) {
+    return "bg-emerald-50 text-emerald-700 border-emerald-100 hover:bg-emerald-100/50";
+  }
+  if (cleanCode.startsWith("PHYS")) {
+    return "bg-amber-50 text-amber-700 border-amber-100 hover:bg-amber-100/50";
+  }
+  return "bg-slate-50 text-slate-700 border-slate-150 hover:bg-slate-100/50";
+};
+
 const Coursework = () => {
   return (
     <section id="coursework" className="py-12 bg-transparent">
-      <div className="max-w-5xl mx-auto px-4">
+      <div className="max-w-2xl mx-auto px-4">
         {/* Section Header */}
         <div className="flex flex-col items-center mb-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-xs font-semibold uppercase tracking-wider mb-3">
-            <GraduationCap size={14} />
-            Academic Profile
-          </div>
           <h2 className="text-3xl font-bold text-slate-900 tracking-tight text-center">
             RELEVANT COURSEWORK
           </h2>
           <div className="w-12 h-1 bg-blue-600 rounded-full mt-3" />
         </div>
 
-        {/* Single Transcript Card Container */}
+        {/* Unified Card Card Box - Matching About Me style */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.6 }}
-          className="bg-white/85 backdrop-blur-md border border-slate-200/70 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-300"
+          transition={{ duration: 0.5 }}
+          className="w-full bg-white/80 backdrop-blur-sm border border-slate-200/60 rounded-xl p-6 shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-300"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {courseworkData.map(({ semester, courses, isCurrent }) => (
+          {/* Header Inside Card */}
+          <div className="text-xs uppercase tracking-wider text-blue-600 font-bold mb-5 flex items-center gap-1.5 justify-center sm:justify-start">
+            <GraduationCap size={15} />
+            Academic Courses
+          </div>
+
+          {/* Grouped Courses List */}
+          <div className="space-y-4 text-left">
+            {courseworkData.map(({ semester, courses }) => (
               <div 
                 key={semester} 
-                className={`flex flex-col p-4 rounded-xl transition-colors duration-200 ${
-                  isCurrent ? 'bg-blue-50/40 border border-blue-100/50' : 'bg-transparent'
-                }`}
+                className="border-b border-slate-150/40 last:border-b-0 pb-3.5 last:pb-0"
               >
-                {/* Semester Header */}
-                <div className="flex items-center justify-between mb-3 pb-2 border-b border-slate-100/80">
-                  <div className="flex items-center gap-2">
-                    <Calendar className={`h-3.5 w-3.5 ${isCurrent ? 'text-blue-600' : 'text-slate-400'}`} />
-                    <h3 className="font-bold text-[13px] text-slate-800 tracking-wide uppercase">
-                      {semester}
-                    </h3>
-                  </div>
-                  {isCurrent && (
-                    <span className="bg-blue-600 text-white text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider scale-90">
-                      Active
-                    </span>
-                  )}
+                <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-wider font-mono mb-2">
+                  {semester}
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  {courses.map((course, idx) => {
+                    const badgeColor = getCourseBadgeStyles(course.code);
+                    return (
+                      <span
+                        key={idx}
+                        title={`${course.code}: ${course.name}`}
+                        className={`inline-flex items-center text-[11px] font-semibold px-2 py-0.5 rounded border transition-all duration-150 cursor-help ${badgeColor}`}
+                      >
+                        {course.code}
+                      </span>
+                    );
+                  })}
                 </div>
-
-                {/* Course List */}
-                <ul className="space-y-2.5">
-                  {courses.map((course, idx) => (
-                    <li key={idx} className="flex gap-2 items-start">
-                      <BookOpen className="h-3 w-3 text-blue-500 mt-0.5 flex-shrink-0" />
-                      <div>
-                        <span className="inline-block font-mono text-[10px] font-bold text-slate-700 bg-slate-100 rounded px-1.5 py-0.25 mr-1.5">
-                          {course.code}
-                        </span>
-                        <span className="text-xs text-slate-600 leading-snug">
-                          {course.name}
-                        </span>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
               </div>
             ))}
           </div>
