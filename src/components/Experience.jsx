@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
-import { Calendar, Briefcase, GraduationCap } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Calendar, Briefcase, GraduationCap, ChevronDown, ChevronUp } from "lucide-react";
 import blab from "../assets/img/berkeley-lab.png";
 import split from "../assets/img/splitsecure_logo.jpeg";
 import berkeley from "../assets/img/berkeley.svg";
@@ -83,9 +84,14 @@ const experiences = [
 ];
 
 const Experience = () => {
+  const [showMore, setShowMore] = useState(false);
+
+  // Show first 4 items, hide last 2 initially
+  const displayedExperiences = showMore ? experiences : experiences.slice(0, 4);
+
   return (
     <section id="experience" className="py-12 bg-transparent">
-      <div className="max-w-4xl mx-auto px-4">
+      <div className="max-w-3xl mx-auto px-4">
         {/* Section Header */}
         <div className="flex flex-col items-center mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-xs font-semibold uppercase tracking-wider mb-3">
@@ -99,89 +105,100 @@ const Experience = () => {
         </div>
 
         {/* Timeline Container */}
-        <div className="relative border-l-2 border-slate-200/80 ml-4 md:ml-32 pl-6 md:pl-8 space-y-12">
-          {experiences.map((exp, index) => {
-            const isResearchOrTeaching = exp.type === "research" || exp.type === "teaching";
-            
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative group"
-              >
-                {/* Timeline Icon Node */}
-                <div className="absolute -left-[35px] md:-left-[43px] top-1.5 flex items-center justify-center w-8 h-8 rounded-full bg-white border-2 border-slate-200 group-hover:border-blue-500 group-hover:bg-blue-50/50 transition-all duration-300 shadow-sm">
-                  {isResearchOrTeaching ? (
-                    <GraduationCap className="w-4 h-4 text-slate-500 group-hover:text-blue-600 transition-colors" />
-                  ) : (
-                    <Briefcase className="w-3.5 h-3.5 text-slate-500 group-hover:text-blue-600 transition-colors" />
-                  )}
-                </div>
-
-                {/* Left Side: Date (Desktop Only) */}
-                <div className="hidden md:block absolute -left-[160px] top-2 w-[120px] text-right">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-slate-400 group-hover:text-blue-600/80 transition-colors font-mono">
-                    {exp.duration.split(" - ")[0]}
-                  </span>
-                  <span className="block text-[11px] text-slate-400 font-mono">
-                    to {exp.duration.split(" - ")[1] || "Present"}
-                  </span>
-                </div>
-
-                {/* Experience Card */}
-                <div className="bg-white/80 backdrop-blur-sm border border-slate-200/60 rounded-xl p-5 hover:shadow-md hover:border-slate-300 transition-all duration-300">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-3">
-                    <div className="flex items-center gap-3">
-                      {exp.logo && (
-                        <div className="w-10 h-10 rounded-lg overflow-hidden border border-slate-100 flex-shrink-0 bg-white flex items-center justify-center p-1 shadow-sm">
-                          <img src={exp.logo} alt={exp.company} className="max-w-full max-h-full object-contain" />
-                        </div>
-                      )}
-                      <div>
-                        <h3 className="text-base font-bold text-slate-900 leading-tight">
-                          {exp.role}
-                        </h3>
-                        <p className="text-sm font-semibold text-blue-600">
-                          {exp.company}
-                        </p>
-                      </div>
-                    </div>
-                    {/* Date (Mobile Only) */}
-                    <div className="md:hidden flex items-center gap-1.5 text-xs font-semibold text-slate-500 bg-slate-50 border border-slate-100 px-2.5 py-1 rounded-full w-max">
-                      <Calendar size={12} />
-                      {exp.duration}
-                    </div>
+        <div className="relative border-l-2 border-slate-200/80 ml-4 pl-6 md:pl-8 space-y-8">
+          <AnimatePresence initial={false}>
+            {displayedExperiences.map((exp, index) => {
+              const isResearchOrTeaching = exp.type === "research" || exp.type === "teaching";
+              
+              return (
+                <motion.div
+                  key={exp.company + exp.role}
+                  initial={{ opacity: 0, height: 0, y: -10 }}
+                  animate={{ opacity: 1, height: "auto", y: 0 }}
+                  exit={{ opacity: 0, height: 0, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                  className="relative group overflow-hidden"
+                >
+                  {/* Timeline Icon Node */}
+                  <div className="absolute -left-[35px] md:-left-[43px] top-4 flex items-center justify-center w-8 h-8 rounded-full bg-white border-2 border-slate-200 group-hover:border-blue-500 group-hover:bg-blue-50/50 transition-all duration-300 shadow-sm z-10">
+                    {isResearchOrTeaching ? (
+                      <GraduationCap className="w-4 h-4 text-slate-500 group-hover:text-blue-600 transition-colors" />
+                    ) : (
+                      <Briefcase className="w-3.5 h-3.5 text-slate-500 group-hover:text-blue-600 transition-colors" />
+                    )}
                   </div>
 
-                  {/* Bullet Descriptions */}
-                  <ul className="space-y-1.5 text-[13.5px] text-slate-600 list-disc pl-4 mb-4">
-                    {exp.description.map((bullet, bIdx) => (
-                      <li key={bIdx} className="leading-relaxed">
-                        {bullet}
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Skills/Tags */}
-                  {exp.skills && (
-                    <div className="flex flex-wrap gap-1.5 pt-1">
-                      {exp.skills.map((skill, sIdx) => (
-                        <span
-                          key={sIdx}
-                          className="inline-flex items-center text-[11px] font-medium px-2 py-0.5 rounded bg-slate-50 border border-slate-200/50 text-slate-600 hover:border-slate-300 hover:bg-slate-100 transition-colors"
-                        >
-                          {skill}
-                        </span>
-                      ))}
+                  {/* Experience Card */}
+                  <div className="bg-white/80 backdrop-blur-sm border border-slate-200/60 rounded-xl p-5 hover:shadow-md hover:border-slate-300 transition-all duration-300 my-1">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
+                      <div className="flex items-center gap-3">
+                        {exp.logo && (
+                          <div className="w-10 h-10 rounded-lg overflow-hidden border border-slate-100 flex-shrink-0 bg-white flex items-center justify-center p-1 shadow-sm">
+                            <img src={exp.logo} alt={exp.company} className="max-w-full max-h-full object-contain" />
+                          </div>
+                        )}
+                        <div>
+                          <h3 className="text-base font-bold text-slate-900 leading-tight">
+                            {exp.role}
+                          </h3>
+                          <p className="text-sm font-semibold text-blue-600">
+                            {exp.company}
+                          </p>
+                        </div>
+                      </div>
+                      
+                      {/* Date Badge (Clean on all devices) */}
+                      <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-500 bg-slate-50 border border-slate-200/50 px-2.5 py-1 rounded-full w-max flex-shrink-0">
+                        <Calendar size={12} className="text-slate-400" />
+                        <span className="font-mono">{exp.duration}</span>
+                      </div>
                     </div>
-                  )}
-                </div>
-              </motion.div>
-            );
-          })}
+
+                    {/* Bullet Descriptions */}
+                    <ul className="space-y-1.5 text-[13px] text-slate-600 list-disc pl-4 mb-4">
+                      {exp.description.map((bullet, bIdx) => (
+                        <li key={bIdx} className="leading-relaxed">
+                          {bullet}
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* Skills/Tags */}
+                    {exp.skills && (
+                      <div className="flex flex-wrap gap-1.5 pt-1">
+                        {exp.skills.map((skill, sIdx) => (
+                          <span
+                            key={sIdx}
+                            className="inline-flex items-center text-[10.5px] font-medium px-2 py-0.5 rounded bg-slate-50 border border-slate-200/50 text-slate-500 hover:border-slate-300 hover:bg-slate-100 transition-colors"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
+        </div>
+
+        {/* Dropdown Expand Button */}
+        <div className="flex justify-center mt-8 pl-4">
+          <button
+            onClick={() => setShowMore(!showMore)}
+            className="flex items-center gap-2 px-5 py-2 rounded-full border border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 text-slate-600 hover:text-slate-800 text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-sm"
+          >
+            {showMore ? (
+              <>
+                Show Less <ChevronUp size={14} />
+              </>
+            ) : (
+              <>
+                Show More <ChevronDown size={14} />
+              </>
+            )}
+          </button>
         </div>
       </div>
     </section>
