@@ -50,7 +50,6 @@ const Navbar = () => {
           <NavLink to="home">About</NavLink>
           <NavLink to="experience">Experience</NavLink>
           <NavLink to="projects">Projects</NavLink> 
-          <NavLink to="coursework">Coursework</NavLink>
           <NavLink to="contact">Contact</NavLink> 
         </div>
 
@@ -74,7 +73,6 @@ const Navbar = () => {
           <NavLink to="home" onClick={() => setIsOpen(false)}>About</NavLink>
           <NavLink to="experience" onClick={() => setIsOpen(false)}>Experience</NavLink>
           <NavLink to="projects" onClick={() => setIsOpen(false)}>Projects</NavLink> 
-          <NavLink to="coursework" onClick={() => setIsOpen(false)}>Coursework</NavLink>
           <NavLink to="contact" onClick={() => setIsOpen(false)}>Contact</NavLink> 
         </div>
       )}

@@ -1,7 +1,6 @@
 import Background from './assets/css/background.jsx';
 import Navbar from './components/Navbar.jsx';
 import About from './components/About';
-import Courses from "./components/Coursework";
 import Projects from "./components/Project";
 import Experience from "./components/Experience";
 import Contact from "./components/Contact";
@@ -16,7 +15,6 @@ function App() {
         <About />
         <Experience />
         <Projects />
-        <Courses />
         <Contact />
       </main>
       
