@@ -1,78 +1,34 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 
-export default function App() {
-  const canvasRef = useRef(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-
-    let width = window.innerWidth;
-    let height = window.innerHeight;
-    canvas.width = width;
-    canvas.height = height;
-
-    const gap = 40; // Distance between dots (higher = cleaner/less dense)
-    const speed = 0.003; // Very slow, deliberate movement
-    const amplitude = 30; // How high the wave goes
-    const waveLength = 0.003; // How wide the waves are
-
-    let offset = 0; 
-
-    function animate() {
-      ctx.clearRect(0, 0, width, height);
-
-      for (let x = 0; x <= width; x += gap) {
-        for (let y = 0; y <= height; y += gap) {
-      
-          const distanceFromCenter = Math.sqrt(Math.pow(x - width/2, 2) + Math.pow(y - height/2, 2));
-          
-          const z = Math.sin(distanceFromCenter * waveLength + offset) * amplitude;
-
-          // 4. Draw the Dot
-          ctx.beginPath();
-          const radius = Math.max(0.5, 1.5 + z * 0.02); 
-          const opacity = Math.max(0.1, 0.5 + z * 0.01); 
-          
-          ctx.fillStyle = `rgba(100, 116, 139, ${opacity})`; 
-          ctx.arc(x, y + z, radius, 0, Math.PI * 2);
-          ctx.fill();
-        }
-      }
-
-      offset -= speed;
-      requestAnimationFrame(animate);
-    }
-
-    function onResize() {
-      width = window.innerWidth;
-      height = window.innerHeight;
-      canvas.width = width;
-      canvas.height = height;
-    }
-
-    window.addEventListener('resize', onResize);
-    animate();
-
-    return () => {
-      window.removeEventListener('resize', onResize);
-    };
-  }, []);
-
+export default function Background() {
   return (
-    <>
-      <canvas
-        ref={canvasRef}
+    <div className="fixed inset-0 -z-50 w-screen h-screen overflow-hidden bg-slate-50/50">
+      {/* Engineering / Mathematical Grid Pattern */}
+      <div 
+        className="absolute inset-0 w-full h-full"
         style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100vw',
-          height: '100vh',
-          backgroundColor: '#f6f7f9ff', // Deep Slate / Dark Navy
-          zIndex: -1,
+          backgroundImage: `
+            radial-gradient(circle, rgba(148, 163, 184, 0.15) 1px, transparent 1px)
+          `,
+          backgroundSize: '24px 24px',
         }}
       />
-    </>
+      
+      {/* Subtle linear accents (like graphing paper major axes) */}
+      <div 
+        className="absolute inset-0 w-full h-full opacity-20"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, rgba(148, 163, 184, 0.1) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(148, 163, 184, 0.1) 1px, transparent 1px)
+          `,
+          backgroundSize: '96px 96px',
+        }}
+      />
+
+      {/* Decorative gradient glowing spots for a modern tech feel */}
+      <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-100/30 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-indigo-100/20 blur-[120px] pointer-events-none" />
+    </div>
   );
 }

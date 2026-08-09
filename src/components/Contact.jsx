@@ -28,9 +28,9 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="min-h-screen flex flex-col justify-center items-center px-4 py-20 bg-transparent"
+      className="py-16 flex flex-col justify-center items-center px-4 bg-transparent"
     >
-      <h2 className="text-3xl font-bold mb-6">CONTACT</h2>
+      <h2 className="text-3xl font-bold mb-6 text-slate-900">CONTACT</h2>
 
       <p className="text-lg text-center text-gray-700 max-w-xl mb-8">
         I'm always open to new opportunities, collaborations, or just a good conversation.
