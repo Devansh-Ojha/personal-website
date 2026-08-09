@@ -71,10 +71,10 @@ const About = () => {
               I'm part of <a href="https://bair.berkeley.edu/" target="_blank" rel="noreferrer" className="font-semibold text-blue-900 hover:text-blue-700">Berkeley Artificial Intelligence Research (BAIR)</a> where I do NLP research. My interests include hardware-aware ML, hardware–software co-design, AI software ecosystems, scalable AI infrastructure, model evaluation, and agentic systems.
             </p>
             <p>
-              I’m currently a Software Engineering Intern — AI Tooling on <a href="https://www.tesla.com/energy" target="_blank" rel="noreferrer" className="font-semibold text-blue-900 hover:text-blue-700">Tesla Energy’s Tooling, Process & Training (TPT)</a> team this summer. I’ve also done backend engineering at <a href="https://splitsecure.com" target="_blank" rel="noreferrer" className="font-semibold text-blue-900 hover:text-blue-700">SplitSecure</a> and worked as an iOS developer for <a href="https://berkeleymobile.app" target="_blank" rel="noreferrer" className="font-semibold text-blue-900 hover:text-blue-700">Berkeley Mobile</a>.
+              I’m currently a Software Engineering Intern — AI Tooling on <a href="https://www.tesla.com/energy" target="_blank" rel="noreferrer" className="font-semibold text-blue-900 hover:text-blue-700">Tesla Energy’s</a> Tooling, Process & Training (TPT) team this summer. I’ve also done backend engineering at <a href="https://splitsecure.com" target="_blank" rel="noreferrer" className="font-semibold text-blue-900 hover:text-blue-700">SplitSecure</a> and contributed to the development of <a href="https://apps.apple.com/us/app/berkeley-mobile/id912243518" target="_blank" rel="noreferrer" className="font-semibold text-blue-900 hover:text-blue-700">Berkeley Mobile</a> as an iOS developer for UC Berkeley's student organization.
             </p>
             <p>
-              Outside of work I cook, play foosball and cricket, and go down YouTube rabbit holes.
+              In my free time I play football and cricket, and go down YouTube rabbit holes.
             </p>
           </div>
         </motion.div>
