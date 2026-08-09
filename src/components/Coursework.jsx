@@ -87,7 +87,7 @@ const Coursework = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.5 }}
-          className="w-full bg-white/80 backdrop-blur-sm border border-slate-200/60 rounded-xl p-6 shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-300"
+          className="w-full bg-white/95 border border-slate-200/70 rounded-3xl p-8 shadow-lg hover:shadow-xl hover:border-slate-300 transition-all duration-300"
         >
           {/* Header Inside Card */}
           <div className="text-xs uppercase tracking-wider text-blue-600 font-bold mb-5 flex items-center gap-1.5 justify-center sm:justify-start">
@@ -102,22 +102,28 @@ const Coursework = () => {
                 key={semester} 
                 className="border-b border-slate-150/40 last:border-b-0 pb-3.5 last:pb-0"
               >
-                <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-wider font-mono mb-2">
+                <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-wider font-mono mb-3">
                   {semester}
                 </h4>
-                <div className="flex flex-wrap gap-2">
-                  {courses.map((course, idx) => {
-                    const badgeColor = getCourseBadgeStyles(course.code);
-                    return (
-                      <span
-                        key={idx}
-                        title={`${course.code}: ${course.name}`}
-                        className={`inline-flex items-center text-[11px] font-semibold px-2 py-0.5 rounded border transition-all duration-150 cursor-help ${badgeColor}`}
-                      >
-                        {course.code}
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                  {courses.map((course, idx) => (
+                    <div
+                      key={idx}
+                      className="flex gap-3 items-start rounded-2xl border border-slate-200/60 bg-slate-50/90 p-3"
+                    >
+                      <span className="mt-1 text-blue-500">
+                        <GraduationCap size={18} />
                       </span>
-                    );
-                  })}
+                      <div>
+                        <div className="text-sm font-semibold text-slate-900">
+                          {course.code}
+                        </div>
+                        <div className="text-sm text-slate-700 leading-relaxed">
+                          {course.name}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             ))}

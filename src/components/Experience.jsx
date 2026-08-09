@@ -7,8 +7,20 @@ import berkeley from "../assets/img/berkeley.svg";
 import cfg from "../assets/img/images.png";
 import bair from "../assets/img/BAIR.png";
 import bmob from "../assets/img/b-mobile.jpeg";
+import tesla from "../assets/img/tesla.png";
 
 const experiences = [
+  {
+    logo: tesla,
+    role: "Software Engineering Intern, Generative AI Tooling",
+    company: "Tesla",
+    duration: "Summer 2026",
+    type: "work",
+    description: [
+      "Coming Soon"
+    ],
+    skills: ["Coming Soon"]
+  },
   {
     logo: bmob,
     role: "iOS Developer",
@@ -128,11 +140,11 @@ const Experience = () => {
                   <div className="bg-white/80 backdrop-blur-sm border border-slate-200/60 rounded-xl p-5 hover:shadow-md hover:border-slate-300 transition-all duration-300 my-1">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
                       <div className="flex items-center gap-3">
-                        {exp.logo && (
-                          <div className="w-10 h-10 rounded-lg overflow-hidden border border-slate-100 flex-shrink-0 bg-white flex items-center justify-center p-1 shadow-sm">
-                            <img src={exp.logo} alt={exp.company} className="max-w-full max-h-full object-contain" />
-                          </div>
-                        )}
+                                      {exp.logo && (
+                                        <div className="w-12 h-12 rounded-lg overflow-hidden border-2 border-slate-100 flex-shrink-0 bg-white flex items-center justify-center p-2 shadow-sm">
+                                          <img src={exp.logo} alt={exp.company} className="max-w-full max-h-full object-contain" />
+                                        </div>
+                                      )}
                         <div>
                           <h3 className="text-base font-bold text-slate-900 leading-tight">
                             {exp.role}
@@ -159,19 +171,6 @@ const Experience = () => {
                       ))}
                     </ul>
 
-                    {/* Skills/Tags */}
-                    {exp.skills && (
-                      <div className="flex flex-wrap gap-1.5 pt-1">
-                        {exp.skills.map((skill, sIdx) => (
-                          <span
-                            key={sIdx}
-                            className="inline-flex items-center text-[10.5px] font-medium px-2 py-0.5 rounded bg-slate-50 border border-slate-200/50 text-slate-500 hover:border-slate-300 hover:bg-slate-100 transition-colors"
-                          >
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
-                    )}
                   </div>
                 </motion.div>
               );
