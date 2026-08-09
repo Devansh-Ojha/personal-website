@@ -1,32 +1,45 @@
 import { useState } from "react";
 import ProjectCard from "./ProjectCard";
-import split from "../assets/img/splitsecure_logo.jpeg";
-import LLM from "../assets/img/LLM.png";
-import Proj2 from "../assets/img/161.png";
-import bmob from "../assets/img/c.png";
 
 const Project = () => {
   const [showMore, setShowMore] = useState(false);
 
   const projects = [
+    // New concise project entries
     {
-      image: LLM,
+      title: "BrowseCheck — AI Agent Runtime Security",
+      description: "Built a runtime guardrail system for autonomous browser agents using Claude SDK, Playwright, FastAPI and Docker.",
+      github: "https://github.com/Devansh-Ojha/BrowseCheck",
+      tech: ["Python", "Claude SDK", "Playwright", "FastAPI", "Docker"]
+    },
+    {
+      title: "High-Performance LLM Inference Engine",
+      description: "Developed a low-latency Python inference engine with PagedAttention and async scheduling for quantized transformer models.",
+      github: "https://github.com/Devansh-Ojha/High-Performance-Inference-Engine",
+      tech: ["Python", "MLX", "PagedAttention", "FastAPI", "AsyncIO"]
+    },
+    {
+      title: "Graphtory — On Device Activity Tracker",
+      description: "Shipped a browser telemetry search engine using on-device embeddings, WebGPU inference, and IndexedDB-backed storage.",
+      github: "https://chromewebstore.google.com/detail/graphtory/jgjoiknnfdohifhmjennggfpioamokni?pli=1",
+      tech: ["WebGPU", "ONNX Runtime Web", "IndexedDB", "JavaScript", "Chrome Extension"]
+    },
+    // Restored previous projects
+    {
       title: "LLM-Based Movie Recommendation System",
-      description: "Built a semantic movie recommendation platform that converts natural-language queries into vector embeddings for accurate, context-aware suggestions. Used HugChat, FlagEmbedding, and pgvector with a FastAPI backend to support fast, scalable recommendations over large movie datasets.",
+      description: "Semantic movie recommendation platform with FastAPI and vector embeddings.",
       github: "https://github.com/Devansh-Ojha/FlixGPT",
       tech: ["FastAPI", "SQLAlchemy", "PyTorch", "HugChat", "Python"]
     },
     {
-      image: bmob,
       title: "Chronos: Real-time Video Analytics Pipeline",
-      description: "Built an event-driven system for real-time video analytics that slices live streams, performs YOLO-based object detection, and enables natural-language search over video clips. Designed a scalable pipeline using Kafka-style streaming, distributed ML workers, and vector search for semantic retrieval.",
+      description: "Event-driven real-time video analytics pipeline with distributed workers and vector search.",
       github: "https://github.com/Devansh-Ojha/chronos",
       tech: ["Go", "Python", "Kafka", "Computer Vision", "Vector DB", "Docker", "YOLOv8"]
     },
     {
-      image: Proj2,
       title: "Secure File Sharing System",
-      description: "Built an end-to-end encrypted file storage system with secure sharing and revocation using append-only file blocks. Designed a cryptographic key hierarchy with per-user and per-file isolation, signed invitations, and efficient key rotation. Achieved constant-size bandwidth for file appends and metadata updates.",
+      description: "End-to-end encrypted file storage with secure sharing and revocation.",
       github: "https://github.com/your-username/mt-low-resource",
       tech: ["Go", "Symmetric Encryption", "Digital Signatures", "MACs", "Computer Security"],
       isNDA: true,
@@ -34,27 +47,35 @@ const Project = () => {
     }
   ];
 
-  const displayedProjects = showMore ? projects : projects.slice(0, 4);
+  const displayedProjects = showMore ? projects : projects.slice(0, 3);
 
   return (
-    <section
-      id="projects"
-      className="relative z-10 min-h-screen flex flex-col items-center bg-transparent px-4 py-20"
-    >
-      <h2 className="experience-title">PROJECTS</h2>
+    <section id="projects" className="py-12 bg-transparent">
+      <div className="max-w-6xl mx-auto px-4">
+        {/* Section Header */}
+        <div className="flex flex-col items-center mb-10">
+          <h2 className="text-3xl font-bold text-slate-900 tracking-tight text-center">
+            PROJECTS
+          </h2>
+          <div className="w-12 h-1 bg-blue-600 rounded-full mt-3" />
+        </div>
 
-      <div className="experience-section">
-        {displayedProjects.map((project, index) => (
-          <ProjectCard key={index} {...project} />
-        ))}
+        {/* Responsive Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {displayedProjects.map((project, index) => (
+            <ProjectCard key={index} {...project} />
+          ))}
+        </div>
+
+        <div className="flex justify-center mt-8">
+          <button
+            onClick={() => setShowMore(!showMore)}
+            className="flex items-center gap-2 px-5 py-2 rounded-full border border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 text-slate-600 hover:text-slate-800 text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-sm"
+          >
+            {showMore ? 'Show Less' : 'Show More'}
+          </button>
+        </div>
       </div>
-
-      {/* <button
-        onClick={() => setShowMore(!showMore)}
-        className="mt-8 px-6 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold hover:from-purple-600 hover:to-pink-600 transition duration-300 ease-in-out transform hover:scale-105"
-      >
-        {showMore ? "Show Less" : "Show More"}
-      </button> */}
     </section>
   );
 };
