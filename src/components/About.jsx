@@ -103,10 +103,10 @@ const About = () => {
                     return (
                       <span
                         key={idx}
-                        title={`${course.code}: ${course.name}`}
+                        title={course.code}
                         className={`inline-flex items-center text-[10px] font-semibold px-2 py-0.5 rounded border transition-all duration-150 cursor-help ${badgeColor}`}
                       >
-                        {course.code}
+                        {course.name}
                       </span>
                     );
                   })}
