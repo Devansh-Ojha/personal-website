@@ -65,13 +65,16 @@ const About = () => {
           </h2>
           <div className="space-y-4 text-slate-600 text-[15px] leading-relaxed">
             <p>
-              Hi, I'm <strong className="text-slate-900">Devansh Ojha</strong>. I am a junior at <strong className="text-slate-900 font-semibold">UC Berkeley</strong> studying <strong className="text-slate-900 font-semibold">Electrical Engineering and Computer Science</strong>. I thrive on the challenge of finding innovative solutions that contribute to long-term success and growth.
+              Hi, I'm <strong className="text-slate-900">Devansh Ojha</strong>. I'm a senior at <strong className="text-slate-900 font-semibold">UC Berkeley</strong> studying <strong className="text-slate-900 font-semibold">Electrical Engineering and Computer Science</strong>.
             </p>
             <p>
-              My interests span Software Engineering, Hardware/Systems, AI/ML, and Cybersecurity. Outside of class, I love teaching and exploring how technology can drive meaningful change.
+              I'm part of <a href="https://bair.berkeley.edu/" target="_blank" rel="noreferrer" className="font-semibold text-blue-900 hover:text-blue-700">Berkeley Artificial Intelligence Research (BAIR)</a> where I do NLP research. My interests include hardware-aware ML, hardware–software co-design, AI software ecosystems, scalable AI infrastructure, model evaluation, and agentic systems.
             </p>
             <p>
-              In my free time, I enjoy going to the gym, running, cooking, and playing soccer.
+              I’m currently a Software Engineering Intern — AI Tooling on <a href="https://www.tesla.com/energy" target="_blank" rel="noreferrer" className="font-semibold text-blue-900 hover:text-blue-700">Tesla Energy’s Tooling, Process & Training (TPT)</a> team this summer. I’ve also done backend engineering at <a href="https://splitsecure.com" target="_blank" rel="noreferrer" className="font-semibold text-blue-900 hover:text-blue-700">SplitSecure</a> and worked as an iOS developer for <a href="https://berkeleymobile.app" target="_blank" rel="noreferrer" className="font-semibold text-blue-900 hover:text-blue-700">Berkeley Mobile</a>.
+            </p>
+            <p>
+              Outside of work I cook, play foosball and cricket, and go down YouTube rabbit holes.
             </p>
           </div>
         </motion.div>
