@@ -5,12 +5,7 @@ const Project = () => {
   const [showMore, setShowMore] = useState(false);
 
   const projects = [
-    {
-      title: "Computer Vision Project",
-      description: "A collection of computer vision projects exploring visual understanding, detection, and image-based learning.",
-      tech: ["Computer Vision", "Python", "Deep Learning"],
-      to: "/cvproj"
-    },
+    // New concise project entries
     {
       title: "BrowseCheck — AI Agent Runtime Security",
       description: "Built a runtime guardrail system for autonomous browser agents using Claude SDK, Playwright, FastAPI and Docker.",
